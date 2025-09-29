@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Authors List{% endblock %}
+
+{% block body %}
+<h1>Authors List</h1>
+
+{% if authors is not defined or authors is empty %}
+    <p>No authors found.</p>
+{% else %}
+    <p>Number of authors: {{ authors|length }}</p>
+
+    {% set total_books = 0 %}
+    <ul>
+    {% for author in authors %}
+        {% set total_books = total_books + author.nb_books %}
+        <li>
+            <a href="{{ path('author_details', {'id': author.id}) }}">details</a>
+            {{ author.username|upper }}
+        </li>
+    {% endfor %}
+    </ul>
+
+    <p>Total number of books: {{ total_books }}</p>
+{% endif %}
+{% endblock %}

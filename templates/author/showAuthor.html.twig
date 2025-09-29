@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Author Details{% endblock %}
+
+{% block body %}
+<h1>Author Details</h1>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Name</th>
+        <th>Picture</th>
+        <th>Email</th>
+        <th>Number of Books</th>
+    </tr>
+    <tr>
+        <td>{{ author.username }}</td>
+        <td><img src="{{ author.picture }}" alt="{{ author.username }}" style="max-width: 150px;"></td>
+        <td>{{ author.email }}</td>
+        <td>{{ author.nb_books }}</td>
+    </tr>
+</table>
+{% endblock %}
